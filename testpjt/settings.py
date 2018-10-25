@@ -25,7 +25,7 @@ SECRET_KEY = '-)uvs4cj+xxg5e&ub8j65hav7gdhln_sevo0h8mv1vfnbgkae+'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost']
 
 # Application definition
 
@@ -36,7 +36,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'users'
+    'django_extensions',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -122,6 +123,18 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+## add in INSTALLED_APPS
+#     'django_extensions',
+#     'users',
+## and edit in DATABASES
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'TestusrDb',
+#         'USER': 'testusr',
+#         'PASSWORD': 'password1!',
+#         'HOST': 'localhost',
+#         'PORT': '',
+#     }
 APPEND_SLASH = False 
 AUTH_USER_MODEL = "users.User"
 REST_FRAMEWORK = {
@@ -132,6 +145,6 @@ REST_FRAMEWORK = {
 JWT_AUTH = {
     'JWT_VERIFY': True,
     'JWT_VERIFY_EXPIRATION': True,
-    'JWT_EXPIRATION_DELTA': datetime.timedelta(seconds=99),
+    'JWT_EXPIRATION_DELTA': datetime.timedelta(seconds=999),
     'JWT_AUTH_HEADER_PREFIX': 'Bearer',
 }
