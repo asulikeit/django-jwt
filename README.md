@@ -75,7 +75,7 @@
 	"username": "admin",
 	"password": "password1!"
 	}
-	PS> .\curl.exe -XPOST "http://localhost:8000/users/login" -d "@data.json" -H "Content-Type: application/json"
+	PS> curl -XPOST "http://localhost:8000/users/login" -d "@data.json" -H "Content-Type: application/json"
 	{"username":"admin","token":"eyJ0eXA.eyJ1c2VyX2lkIj.tYxcA9PQwIDfn"}
-	PS> .\curl.exe "http://localhost:8000/users/me" -H "Authorization: Bearer eyJ0eXA.eyJ1c2VyX2lkIj.tYxcA9PQwIDfn"
+	PS> curl "http://localhost:8000/users/me" -H "Authorization: Bearer eyJ0eXA.eyJ1c2VyX2lkIj.tYxcA9PQwIDfn"
 	"admin"
