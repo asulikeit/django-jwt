@@ -1,5 +1,8 @@
 # django-jwt
 
+## environment
+	Ubuntu 16.04, Django 2.1.2
+
 ## create virtual development environment
 	$ mkdir ~/downloads
 	$ cd ~/downloads
@@ -47,3 +50,32 @@
 	
 ## start server
 	$ python manage.py runserver
+
+## just clone
+	$ cd venv
+	$ git clone https://github.com/asulikeit/django-jwt.git
+	$ source bin/activate
+	(django-jwt)$ cd django-jwt/
+	(django-jwt)$ sudo su postgres -c "psql -h localhost -p 5432 -a -f scripts/	create_postgresql_db.sql"
+	(django-jwt)$ pip install -r requirements.txt
+	(django-jwt)$ python manage.py migrate
+	(django-jwt)$ $ python manage.py createsuperuser
+	Username: admin
+	Email: admin@test.com
+	Password:
+	Password (again):
+	Bypass password validation and create user anyway? (y/N): y
+	Superuser created successfully.
+	(django-jwt)$ python manage.py runserver
+	(django-jwt)$
+	
+## curl test
+	PS> cat .\data.json
+	{
+	"username": "admin",
+	"password": "password1!"
+	}
+	PS> .\curl.exe -XPOST "http://localhost:8000/users/login" -d "@data.json" -H "Content-Type: application/json"
+	{"username":"admin","token":"eyJ0eXA.eyJ1c2VyX2lkIj.tYxcA9PQwIDfn"}
+	PS> .\curl.exe "http://localhost:8000/users/me" -H "Authorization: Bearer eyJ0eXA.eyJ1c2VyX2lkIj.tYxcA9PQwIDfn"
+	"admin"
