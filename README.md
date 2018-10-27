@@ -56,7 +56,7 @@
 	$ git clone https://github.com/asulikeit/django-jwt.git
 	$ source bin/activate
 	(django-jwt)$ cd django-jwt/
-	(django-jwt)$ sudo su postgres -c "psql -h localhost -p 5432 -a -f scripts/	create_postgresql_db.sql"
+	(django-jwt)$ sudo su postgres -c "psql -h localhost -p 5432 -a -f scripts/create_postgresql_db.sql"
 	(django-jwt)$ pip install -r requirements.txt
 	(django-jwt)$ python manage.py migrate
 	(django-jwt)$ $ python manage.py createsuperuser
@@ -76,6 +76,6 @@
 	"password": "password1!"
 	}
 	PS> curl -XPOST "http://localhost:8000/users/login" -d "@data.json" -H "Content-Type: application/json"
-	{"username":"admin","token":"eyJ0eXA.eyJ1c2VyX2lkIj.tYxcA9PQwIDfn"}
-	PS> curl "http://localhost:8000/users/me" -H "Authorization: Bearer eyJ0eXA.eyJ1c2VyX2lkIj.tYxcA9PQwIDfn"
+	{"username":"admin","token":"eyJ0eXA.eyJ1c2VyX2lIj.tYxcA9QwIDfn"}
+	PS> curl "http://localhost:8000/users/me" -H "Authorization: Bearer eyJ0eXA.eyJ1c2VyX2lIj.tYxcA9QwIDfn"
 	"admin"
