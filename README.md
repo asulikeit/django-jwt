@@ -6,7 +6,8 @@
 ## create virtual development environment
 	$ mkdir ~/downloads
 	$ cd ~/downloads
-	$ pip download --no-cache --proxy http://proxy:1234 setuptools wheel pip$ cd -
+	$ pip download --no-cache --proxy http://proxy:1234 setuptools wheel pip
+	$ cd -
 	$ virtualenv --no-download -extra-search-dir ~/downloads venv
     
 ## how to activate on windows
